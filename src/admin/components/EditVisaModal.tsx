@@ -16,10 +16,13 @@ export default function EditVisaModal({ isOpen, onClose, visa, onSave }: EditVis
 
     const handleSave = async () => {
         try {
+            console.log(newNotes);
+            console.log(newStatus);
            const res =  await axios.put(`https://ariventures-data.vercel.app/visas/update-status/${visa.id}`, {
                 status: newStatus,
                 notes: newNotes,
             });
+           console.log(res)
            console.log(res.data);
             onSave(); // Refresh data
             onClose(); // Close modal
