@@ -1,0 +1,3 @@
+.visa-table {
+    @apply border-collapse border w-full;
+}
