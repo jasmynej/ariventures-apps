@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import {Link, Outlet} from "react-router";
 import socialLogo from '../assets/ariventures_logo_small.png'
 import './styles/layout.css'
 function AdminLayout() {
@@ -11,10 +11,10 @@ function AdminLayout() {
                 </div>
                 <div className="flex flex-col gap-2 p-2">
                     <div className="dash-nav-item">
-                        <p>Countries</p>
+                        <Link to="countries">Countries</Link>
                     </div>
                     <div className="dash-nav-item">
-                        <p>Visa Statuses</p>
+                        <Link to="visas">Visa Status</Link>
                     </div>
                 </div>
 
