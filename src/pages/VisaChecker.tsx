@@ -2,6 +2,8 @@ import {getAllCountries, getValidPassports, getVisaStatus} from "../services/cou
 import {useEffect, useState} from "react";
 import Country from "../models/Country.ts";
 import VisaStatus from "../models/Visas.ts";
+import '../styles/visas.css'
+import {formatEnum} from "../services/utils.ts";
 function VisaChecker() {
     const emptyStatus = {
         id: 0,
@@ -55,29 +57,39 @@ function VisaChecker() {
     }, []);
     return (
         <>
-            <div>
-                <form>
-                    <label>Passport: </label>
-                    <select onChange={handlePassportChange}>
-                        {availableCountries.map((country: Country) => (
-                            <option key={country.id} value={country.id}>{country.name}</option>
-                        ))}
-                    </select>
-                    <label>Destination: </label>
-                    <select onChange={handleDestinationChange}>
-                        {countries.map((country: Country) => (
-                            <option key={country.id} value={country.id}>{country.name}</option>
-                        ))}
-                    </select>
-                    <button onClick={handleVisaStatusClick}>Check Status</button>
-                </form>
-                <p>{passport}</p>
-                <p>{destination}</p>
-                <div>
-                    <p>{visaStatus.status}</p>
-                    <p>{visaStatus.notes}</p>
-                </div>
+            <div className="w-full min-h-screen flex flex-col justify-center items-center px-4 py-8">
+                <form className="flex flex-col items-center w-full max-w-md space-y-6 bg-stone-100 rounded-md p-10">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-4 w-full">
+                        <div className="flex flex-col w-full mb-4 sm:mb-0">
+                            <label className="text-lg sm:text-xl mb-1">Passport:</label>
+                            <select onChange={handlePassportChange} className="text-lg sm:text-xl w-full px-2 py-1 rounded border bg-white">
+                                {availableCountries.map((country: Country) => (
+                                    <option key={country.id} value={country.id}>{country.name}</option>
+                                ))}
+                            </select>
+                        </div>
 
+                        <div className="flex flex-col w-full">
+                            <label className="text-lg sm:text-xl mb-1">Destination:</label>
+                            <select onChange={handleDestinationChange} className="text-lg sm:text-xl w-full px-2 py-1 rounded border bg-white">
+                                {countries.map((country: Country) => (
+                                    <option key={country.id} value={country.id}>{country.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    <button onClick={handleVisaStatusClick} className="p-2 text-lg rounded-md text-white w-full sm:w-auto" id="check-actions">
+                        Check Status
+                    </button>
+                </form>
+
+                <div className="flex justify-center items-center p-4 w-full">
+                    <div className="status text-center w-full max-w-md p-4 rounded" id={visaStatus.status.toLowerCase()}>
+                        <h2 className="text-2xl sm:text-3xl font-semibold">{formatEnum(visaStatus.status)}</h2>
+                        <p className="text-lg sm:text-2xl font-light">{visaStatus.notes}</p>
+                    </div>
+                </div>
             </div>
         </>
     )
