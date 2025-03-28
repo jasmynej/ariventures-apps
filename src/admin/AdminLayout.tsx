@@ -16,6 +16,9 @@ function AdminLayout() {
                     <div className="dash-nav-item">
                         <Link to="visas">Visa Status</Link>
                     </div>
+                    <div className="dash-nav-item">
+                        <Link to="cities">Cities</Link>
+                    </div>
                 </div>
 
             </div>

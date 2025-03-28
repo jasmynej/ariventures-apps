@@ -7,6 +7,7 @@ import AdminHome from "./admin/AdminHome.tsx";
 import AdminVisas from "./admin/AdminVisas.tsx";
 import VisaChecker from "./pages/VisaChecker.tsx";
 import AdminCountries from "./admin/AdminCountries.tsx";
+import AdminCities from "./admin/AdminCities.tsx";
 
 
 
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
                 <Route index element={<AdminHome />} />
                 <Route path="countries"  element={<AdminCountries/>}/>
                 <Route path="visas" element={<AdminVisas/>}/>
+                <Route path="cities" element={<AdminCities/>}/>
             </Route>
         </Routes>
     </BrowserRouter>

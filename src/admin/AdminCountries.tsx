@@ -1,6 +1,6 @@
 import {getAllCountries} from "../services/countryService.ts";
 import {useEffect, useState} from "react";
-import Country from "../models/Country.ts";
+import {Country} from "../models/Country.ts";
 
 function AdminCountries() {
 
@@ -36,7 +36,7 @@ function AdminCountries() {
                         <td className="border-r p-4">{country.capital}</td>
                         <td className="border-r p-4">{country.region}</td>
                         <td className="border-r p-4">{country.sub_region}</td>
-                        
+
                     </tr>
                 ))}
                 </tbody>

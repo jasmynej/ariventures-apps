@@ -7,4 +7,14 @@ type Country = {
     flag_img: string;
 }
 
-export default Country;
+const getEmptyCountry = (): Country => ({
+    id: 0,
+    name: "",
+    capital: "",
+    region: "",
+    sub_region: "",
+    flag_img: "",
+});
+
+export {getEmptyCountry};
+export type { Country };
