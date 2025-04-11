@@ -1,7 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 import Modal from "../../components/Modal.tsx";
-import City from "../../models/City.ts";
+import {City} from "../../models/City.ts";
 import * as React from "react";
 
 interface CityDetailsModalProps {

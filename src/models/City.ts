@@ -9,6 +9,12 @@ type City = {
     images: Image[];
 }
 
+type FormCity =  {
+    name: string;
+    state_province: string;
+    country_id: number;
+}
+
 export const emptyCity: City = {
     id: 0,
     name: "",
@@ -17,4 +23,4 @@ export const emptyCity: City = {
     images: [],
 };
 
-export default City;
+export type {City, FormCity};

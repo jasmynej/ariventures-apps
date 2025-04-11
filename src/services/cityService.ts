@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import {FormCity} from "../models/City.ts";
 
 async function getAllCities() {
     const citiesResponse: AxiosResponse = await axios.get("https://ariventures-data.vercel.app/cities/all");
@@ -10,6 +11,11 @@ async function getCitiesByCountry(countryId: number) {
     console.log(citiesByCountryResponse.data);
     return citiesByCountryResponse.data;
 }
-export {getAllCities, getCitiesByCountry}
+
+async function addCites(cites: FormCity[]){
+    const addedCities: AxiosResponse = await axios.post("https://ariventures-data.vercel.app/cities/add", cites);
+    return addedCities.data;
+}
+export {getAllCities, getCitiesByCountry, addCites}
 
 
