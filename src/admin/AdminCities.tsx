@@ -1,19 +1,45 @@
 import {useEffect, useState} from "react";
-import City, {emptyCity} from "../models/City.ts";
-import {getAllCities} from "../services/cityService.ts";
+import  {emptyCity, City} from "../models/City.ts";
+import {getAllCities, getCitiesByCountry} from "../services/cityService.ts";
+import {getAllCountries} from "../services/countryService.ts";
 import {TrashIcon, EyeIcon} from "@heroicons/react/24/outline";
 import CityDetailsModal from "./components/CityDetailsModal.tsx";
+import {Country} from "../models/Country.ts";
+import AddCitiesModal from "./components/AddCities.tsx";
+import * as React from "react";
 
 function AdminCities() {
 
     const [cities, setCities] = useState<City[]>([]);
+
+    const [countries, setCountries] = useState<Country[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
     const [selectedCity, setSelectedCity] = useState<City>(emptyCity);
+    const [country, setCountry] = useState<number>(0);
+
+    const filterByCountry = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setCountry(parseInt(e.currentTarget.value));
+    }
 
     useEffect(() => {
-        getAllCities()
-            .then(res => setCities(res))
-        .catch(err => console.log(err));
+        if(country == 0){
+            getAllCities()
+                .then(res => setCities(res))
+                .catch(err => console.log(err));
+
+        }
+        else {
+            getCitiesByCountry(country).then((res) => setCities(res))
+                .catch(err => console.log(err));
+
+        }
+    }, [country]);
+
+    useEffect(() => {
+        getAllCountries()
+            .then(res => setCountries(res))
+            .catch(err => console.log(err));
     }, []);
 
     const openCityModal = (city: City) => {
@@ -28,8 +54,16 @@ function AdminCities() {
 
     return (
         <div className="p-5 h-screen scroll-auto">
-            <p>Cities</p>
-            <table className="border p-5">
+            <div>
+                <select className="p-2 m-2" onChange={filterByCountry}>
+                    <option value="0">All Countries</option>
+                    {countries.map((country) => (
+                        <option key={country.id} value={country.id}>{country.name}</option>
+                    ))}
+                </select>
+                <button className="p-2 m-2 bg-blue-200" onClick={() => setIsAddModalOpen(true)}>Add Cities</button>
+            </div>
+            <table className="border p-5 m-2">
                 <thead className="text-left">
                 <tr>
                     <th className="px-4 py-2 border border-black">Name</th>
@@ -51,6 +85,7 @@ function AdminCities() {
                 </tbody>
             </table>
             <CityDetailsModal city={selectedCity} isOpen={isModalOpen} onClose={closeCityModal} onSave={getAllCities} />
+            <AddCitiesModal isOpen={isAddModalOpen} onClose={() => {setIsAddModalOpen(false)}} countries={countries} />
         </div>
     )
 }
