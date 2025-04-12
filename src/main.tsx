@@ -8,6 +8,7 @@ import AdminVisas from "./admin/AdminVisas.tsx";
 import VisaChecker from "./pages/VisaChecker.tsx";
 import AdminCountries from "./admin/AdminCountries.tsx";
 import AdminCities from "./admin/AdminCities.tsx";
+import LoginPage from "./auth/LoginPage.tsx";
 
 
 
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')!).render(
                 <Route path="visas" element={<AdminVisas/>}/>
                 <Route path="cities" element={<AdminCities/>}/>
             </Route>
+            <Route path="/login" element={<LoginPage/>}/>
         </Routes>
     </BrowserRouter>
 );
