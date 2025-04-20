@@ -1,0 +1,11 @@
+.auth-login-bg {
+    background-image: url("../assets/login-opt-2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.auth-signup-bg {
+    background-image: url("../assets/signup-page-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import {useNavigate} from "react-router";
 import {supabase} from "../lib/supabaseDb.ts";
 import "../styles/auth.css"
+import logo from '../assets/ariventures_logo.png'
+import * as React from "react";
 
 function LoginPage() {
     const [email, setEmail] = useState("");
@@ -26,47 +28,40 @@ function LoginPage() {
 
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
-            <form
-                onSubmit={handleLogin}
-                className="bg-white p-8 rounded shadow-md w-full max-w-sm"
-            >
-                <h1 className="text-2xl font-bold mb-4">Log in to Admin</h1>
+       <div className="flex w-screen h-screen">
 
-                {errorMsg && (
-                    <p className="text-red-500 text-sm mb-3">{errorMsg}</p>
-                )}
+           <div className="flex flex-col w-2/5 p-4  justify-center bg-orange-50">
+               <img src={logo} className="w-72 m-2" alt="ariventures logo"/>
+               <div className="m-2">
+                   <h2 className="uppercase font-light text-2xl">Login</h2>
+                   <form className="bg-white p-4 my-4 rounded drop-shadow">
+                       {errorMsg && <div className="text-red-500">{errorMsg}</div>}
+                       <div className="flex flex-col gap-2 p-2">
+                           <label>Email</label>
+                           <input type="email"
+                                  className="border p-2 rounded border-stone-300"
+                                  value={email}
+                                  onChange={(e) => setEmail(e.target.value)}/>
+                       </div>
+                       <div className="flex flex-col gap-2 p-2">
+                           <label>Password</label>
+                           <input type="password"
+                                  className="border p-2 rounded border-stone-300"
+                                  value={password}
+                                  onChange={(e) => setPassword(e.target.value)}/>
+                       </div>
+                       <button className="bg-pink-200 p-2 w-full hover:bg-pink-300 rounded"
+                               onClick={(e) => handleLogin(e)}>Login
+                       </button>
+                   </form>
+                   <p>Don't have an account? <span className="underline" onClick={() => navigate("/sign-up")}>Sign Up</span></p>
+               </div>
 
-                <div className="mb-4">
-                    <label className="block text-sm font-medium mb-1">Email</label>
-                    <input
-                        type="email"
-                        className="border border-gray-300 p-2 w-full rounded"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
+           </div>
+           <div className="w-3/5 auth-login-bg">
 
-                <div className="mb-4">
-                    <label className="block text-sm font-medium mb-1">Password</label>
-                    <input
-                        type="password"
-                        className="border border-gray-300 p-2 w-full rounded"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <button
-                    type="submit"
-                    className="w-full bg-pink-300 hover:bg-pink-500 text-white py-2 rounded"
-                >
-                    Log In
-                </button>
-            </form>
-        </div>
+           </div>
+       </div>
     )
 }
 
