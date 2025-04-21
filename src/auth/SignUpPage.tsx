@@ -28,12 +28,12 @@ function SignUpPage() {
 
     return (
         <div className="flex w-screen h-screen">
-            <div className="flex flex-col w-2/5 p-4  justify-center bg-orange-50">
+            <div className="flex flex-col w-2/5 p-4  justify-center bg-isabelline-100">
                 <img src={logo} className="w-72 m-2" alt="ariventures logo"/>
                 <div className="m-2">
                     <h2 className="uppercase font-light text-2xl">Sign up</h2>
                     <form className="bg-white p-4 my-4 rounded drop-shadow">
-                        {errorMsg && <div className="text-red-500">{errorMsg}</div>}
+                        {errorMsg && <div className="text-tea-rose-800">{errorMsg}</div>}
                         <div className="flex flex-col gap-2 p-2">
                             <label>Email</label>
                             <input type="email"
@@ -48,7 +48,7 @@ function SignUpPage() {
                                    value={password}
                                    onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <button className="bg-pink-200 p-2 w-full hover:bg-pink-300 rounded" onClick={(e) => handleSignUp(e)}>Sign Up</button>
+                        <button className="bg-tea-rose-500 p-2 w-full hover:bg-tea-rose-600 transition ease-in duration-200" onClick={(e) => handleSignUp(e)}>Sign Up</button>
                     </form>
                     <p>Already have an account? <span className="underline" onClick={() => navigate("/login")}>Login</span></p>
                 </div>

@@ -30,12 +30,12 @@ function LoginPage() {
     return (
        <div className="flex w-screen h-screen">
 
-           <div className="flex flex-col w-2/5 p-4  justify-center bg-orange-50">
-               <img src={logo} className="w-72 m-2" alt="ariventures logo"/>
+           <div className="flex flex-col w-2/5 p-4  justify-center bg-isabelline-100">
+               <img src={logo} className="w-72 m-2" alt="ariventures logo" onClick={() => navigate("/")}/>
                <div className="m-2">
                    <h2 className="uppercase font-light text-2xl">Login</h2>
                    <form className="bg-white p-4 my-4 rounded drop-shadow">
-                       {errorMsg && <div className="text-red-500">{errorMsg}</div>}
+                       {errorMsg && <div className="text-tea-rose-800">{errorMsg}</div>}
                        <div className="flex flex-col gap-2 p-2">
                            <label>Email</label>
                            <input type="email"
@@ -50,7 +50,7 @@ function LoginPage() {
                                   value={password}
                                   onChange={(e) => setPassword(e.target.value)}/>
                        </div>
-                       <button className="bg-pink-200 p-2 w-full hover:bg-pink-300 rounded"
+                       <button className="bg-tea-rose-500 p-2 w-full hover:bg-tea-rose-600 transition ease-in duration-200"
                                onClick={(e) => handleLogin(e)}>Login
                        </button>
                    </form>

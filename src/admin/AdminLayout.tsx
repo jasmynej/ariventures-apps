@@ -5,10 +5,9 @@ function AdminLayout() {
     return (
         <main className="w-screen h-screen flex overflow-hidden">
             {/* Sidebar */}
-            <div className="h-full w-72 flex flex-col border-r shrink-0 border-yellow-900">
-                <div className="flex gap-2 items-center border-b p-4 border-yellow-900">
+            <div className="h-full w-72 flex flex-col border-r shrink-0 border-isabelline-600">
+                <div className="flex gap-2 items-center justify-center border-b p-4 border-isabelline-600">
                     <img src={socialLogo} alt="Logo" className="w-24" />
-                    <h2>Ariventures Admin</h2>
                 </div>
                 <div className="flex flex-col">
                     {[
@@ -20,8 +19,8 @@ function AdminLayout() {
                             key={to}
                             to={to}
                             className={({ isActive }) =>
-                                `text-right border-b border-yellow-900 p-2 ${
-                                    isActive ? "bg-yellow-900 text-white" : "hover:bg-yellow-900 hover:text-white"
+                                `text-right border-b border-isabelline-600 p-2 ${
+                                    isActive ? "bg-isabelline-600 " : "hover:bg-isabelline-600"
                                 }`
                             }
                         >
