@@ -1,6 +1,6 @@
 import {getAllCountries} from "../services/countryService.ts";
 import {useEffect, useState} from "react";
-import {Country} from "../models/Country.ts";
+import {Country} from "../models";
 
 function AdminCountries() {
 

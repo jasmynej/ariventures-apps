@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Modal from "../../components/Modal.tsx";
-import VisaStatus from "../../models/Visas.ts";
+import {VisaStatus} from "../../models";
 
 interface EditVisaModalProps {
     isOpen: boolean;

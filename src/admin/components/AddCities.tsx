@@ -1,6 +1,6 @@
 import Modal from "../../components/Modal.tsx";
 import { useState } from "react";
-import { Country } from "../../models/Country.ts";
+import { Country } from "../../models";
 import {FormCity} from "../../models/City.ts";
 import {addCites} from "../../services/cityService.ts";
 import * as React from "react";
