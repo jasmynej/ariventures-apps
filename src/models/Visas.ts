@@ -12,4 +12,4 @@ type VisaStatus = {
     }
 }
 
-export default VisaStatus;
+export type {VisaStatus};

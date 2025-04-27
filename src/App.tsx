@@ -1,5 +1,5 @@
 import './App.css'
-import Header from "./components/Header.tsx";
+import {Header} from "./components";
 import {useNavigate} from "react-router";
 import {ArrowDownIcon} from "@heroicons/react/24/outline";
 function App() {

@@ -1,5 +1,5 @@
 import {Country, getEmptyCountry} from "./Country.ts";
-import Image from "./Image.ts";
+import {Image} from ".";
 
 type City = {
     id: number;

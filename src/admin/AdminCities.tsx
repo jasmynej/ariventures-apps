@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import  {emptyCity, City} from "../models/City.ts";
+import  {emptyCity} from "../models/City.ts";
 import {getAllCities, getCitiesByCountry} from "../services/cityService.ts";
 import {getAllCountries} from "../services/countryService.ts";
 import {TrashIcon, EyeIcon} from "@heroicons/react/24/outline";
 import CityDetailsModal from "./components/CityDetailsModal.tsx";
-import {Country} from "../models/Country.ts";
+import {Country, City} from "../models";
 import AddCitiesModal from "./components/AddCities.tsx";
 import * as React from "react";
 

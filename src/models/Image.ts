@@ -2,4 +2,4 @@ type Image = {
     url: string;
 }
 
-export default Image;
+export type {Image};

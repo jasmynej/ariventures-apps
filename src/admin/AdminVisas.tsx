@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import VisaStatus from "../models/Visas.ts";
+import {VisaStatus} from "../models";
 import "./styles/visas.css"
 import {PencilSquareIcon, TrashIcon, ArrowLongRightIcon, ArrowLongLeftIcon} from "@heroicons/react/24/outline";
 import EditVisaModal from "./components/EditVisaModal.tsx";
