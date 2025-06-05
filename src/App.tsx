@@ -11,9 +11,9 @@ function App() {
             <div className="absolute inset-0 bg-desert-sand-600/60 z-0"></div>
            <div className="relative z-10 p-8 flex h-full items-center">
                 <div>
-                    <h1 className="text-5xl font-semibold text-desert-sand-200">Welcome to Ariventures: Apps</h1>
-                    <p className="text-2xl font-light text-desert-sand-200">Travel application suite, from visas to wishlists</p>
-                    <div className="flex items-center text-xl text-desert-sand-200"><ArrowDownIcon className="w-12 my-2 text-desert-sand-200"/> See More </div>
+                    <h1 className="text-5xl font-medium uppercase text-desert-sand-200">Welcome to Ariventures: Apps</h1>
+                    <p className="text-2xl font-light text-desert-sand-200 m-2">Travel application suite, from visas to wishlists</p>
+                    <div className="flex items-center text-xl text-desert-sand-200"><ArrowDownIcon className="w-8 my-2 text-desert-sand-200"/> See More </div>
                 </div>
                <div>
 

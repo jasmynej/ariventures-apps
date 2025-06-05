@@ -2,7 +2,6 @@ import { useState } from "react";
 import {useNavigate} from "react-router";
 import {supabase} from "../lib/supabaseDb.ts";
 import "../styles/auth.css"
-import logo from '../assets/ariventures_logo.png'
 import * as React from "react";
 
 function SignUpPage() {
@@ -29,7 +28,11 @@ function SignUpPage() {
     return (
         <div className="flex w-screen h-screen">
             <div className="flex flex-col w-2/5 p-4  justify-center bg-isabelline-100">
-                <img src={logo} className="w-72 m-2" alt="ariventures logo"/>
+
+                <div className="w-1/2 bg-[url(/src/assets/ariventures_logo.png)] bg-cover bg-center bg-no-repeat h-24"
+                     onClick={() => navigate("/")}
+                ></div>
+
                 <div className="m-2">
                     <h2 className="uppercase font-light text-2xl">Sign up</h2>
                     <form className="bg-white p-4 my-4 rounded drop-shadow">

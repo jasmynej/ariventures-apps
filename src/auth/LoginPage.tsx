@@ -2,7 +2,7 @@ import { useState } from "react";
 import {useNavigate} from "react-router";
 import {supabase} from "../lib/supabaseDb.ts";
 import "../styles/auth.css"
-import logo from '../assets/ariventures_logo.png'
+import {getUserProfileById} from "../services/userService.ts";
 import * as React from "react";
 
 function LoginPage() {
@@ -14,7 +14,7 @@ function LoginPage() {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const { error } = await supabase.auth.signInWithPassword({
+        const {data, error } = await supabase.auth.signInWithPassword({
             email,
             password,
         });
@@ -22,7 +22,8 @@ function LoginPage() {
         if (error) {
             setErrorMsg(error.message);
         } else {
-            navigate("/admin");
+            const profile = await getUserProfileById(data.user?.id);
+            navigate(`/${profile.username}`);
         }
     };
 
@@ -31,7 +32,10 @@ function LoginPage() {
        <div className="flex w-screen h-screen">
 
            <div className="flex flex-col w-2/5 p-4  justify-center bg-isabelline-100">
-               <img src={logo} className="w-72 m-2" alt="ariventures logo" onClick={() => navigate("/")}/>
+               <div className="w-1/2 bg-[url(/src/assets/ariventures_logo.png)] bg-cover bg-center bg-no-repeat h-24"
+                    onClick={() => navigate("/")}
+               >
+               </div>
                <div className="m-2">
                    <h2 className="uppercase font-light text-2xl">Login</h2>
                    <form className="bg-white p-4 my-4 rounded drop-shadow">

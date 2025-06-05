@@ -1,12 +1,12 @@
-import logo from '../assets/ariventures_logo.jpg'
+// import logo from '../assets/ariventures_logo.png'
 import {useNavigate} from "react-router";
 
 function Header() {
     const navigate = useNavigate();
     return (
         <header className="w-screen flex  items-center justify-between p-5 shadow-sm">
-            <div>
-                <img src={logo} className="w-72" alt=" ariventures logo" />
+            <div className="w-32 bg-[url(/src/assets/ariventures_logo.png)] bg-cover bg-center bg-no-repeat h-24">
+
             </div>
 
             <div className="gap-3">

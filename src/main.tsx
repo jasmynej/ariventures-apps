@@ -10,6 +10,7 @@ import AdminCities from "./admin/AdminCities.tsx";
 import LoginPage from "./auth/LoginPage.tsx";
 import SignUpPage from "./auth/SignUpPage.tsx";
 import VisaStatusChecker from "./pages/VisaStatusChecker.tsx";
+import ProfilePage from "./pages/ProfilePage.tsx";
 
 
 
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
             </Route>
             <Route path="/login" element={<LoginPage/>}/>
             <Route path="/sign-up" element={<SignUpPage/>}/>
+            <Route path="/:username" element={<ProfilePage/>}/>
         </Routes>
     </BrowserRouter>
 );
