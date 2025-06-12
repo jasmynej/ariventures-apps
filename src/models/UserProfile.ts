@@ -4,7 +4,9 @@ type UserProfile = {
     display_name: string,
     role: string,
     username: string,
-    image: string
+    image: string,
+    cover_image: string,
+    bio: string,
 }
 
 export type {UserProfile};

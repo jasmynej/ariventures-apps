@@ -4,11 +4,14 @@ import {supabase} from "../lib/supabaseDb.ts";
 import "../styles/auth.css"
 import {getUserProfileById} from "../services/userService.ts";
 import * as React from "react";
+import {useAuthStore} from "../store/userStore.ts";
 
 function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
+    const {setCurrentUser} = useAuthStore();
+
     const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {
@@ -23,6 +26,7 @@ function LoginPage() {
             setErrorMsg(error.message);
         } else {
             const profile = await getUserProfileById(data.user?.id);
+            setCurrentUser(profile);
             navigate(`/${profile.username}`);
         }
     };
