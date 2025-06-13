@@ -17,6 +17,7 @@ const emptyCountry:  Country ={
     region: "",
     sub_region: "",
     flag_img: "",
+    img: ""
 }
 
 interface VisaCheckerStore {

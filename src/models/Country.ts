@@ -5,6 +5,7 @@ type Country = {
     region: string;
     sub_region: string;
     flag_img: string;
+    img: string;
 }
 
 const getEmptyCountry = (): Country => ({
@@ -14,6 +15,7 @@ const getEmptyCountry = (): Country => ({
     region: "",
     sub_region: "",
     flag_img: "",
+    img: ""
 });
 
 export {getEmptyCountry};
